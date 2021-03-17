@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    ViewBag.Title = "Entered Restauarant List";
+}
+
+@model IEnumerable<Project1.Models.Appointment>
+@*this shows the users entered recommended restaurants after the form is submitted*@
+
+    <div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-preview">
+
+                        <h2>Here are the appointments currently on the list</h2>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Your Sign up Time</th>
+
+                                    <th>Your Group Name</th>
+
+                                    <th>Group Size</th>
+
+                                    <th>Email Address</th>
+
+                                    <th>Phone (Optional)</th>
+
+
+                                </tr>
+                            </thead>
+
+                            @*displaying the actual submitted information*@
+                            <tbody>
+                @foreach (Project1.Models.Appointment x in Model)
+                {
+                <tr>
+                    <td>@x.ApptTime</td>
+                    <td>@x.GroupName</td>
+                    <td>@x.GroupSize</td>
+                    <td>@x.GroupEmail</td>
+                    <td>@x.PhoneNum</td>
+
+
+                </tr>
+                }
+
+
+            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,22 +1,29 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="row m-1 p-1">
-    <div class="col-3">
-        <img class="btn-block" src="~/img/temple.jpg" />
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-preview">
+                <div class="row m-1 p-1">
+                    <div class="col-3">
+                        <img class="btn-block" src="~/img/temple.jpg" />
+                    </div>
+                    <div class="col-9">
+                        <h1>Layton Utah Temple Tours</h1>
+                        <p class="text-lg-left">
+                            PLEASE SIGN-UP FOR SUNDAY TOURS ONLY.  WE WILL SOON HAVE A NEW SCHEDULE SINCE WE HAVE BEEN ASKED TO STOP ALL OUTSIDE TOURS. Please review the available slots ON SUNDAY ONLY and click on the button to sign up. Use the "quantity" field to let us know how many people will be in your group. Thank you!
+                        </p>
+                        <p><strong>General Tour Instructions:</strong></p>
+                        <ul class="list-group">
+                            <li class="list">Masks are required.</li>
+                            <li class="list">Park on Rosewood (west side of the temple)&nbsp;and meet at the Visitors Center trailer.</li>
+                            <li class="list">Dress casual, except on Sunday</li>
+                        </ul>
+                    </div>
+                    <a class="btn" asp-action="AddAppointment">Sign Up</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-9">
-        <h1>Layton Utah Temple Tours</h1>
-        <p class="text-lg-left">
-            PLEASE SIGN-UP FOR SUNDAY TOURS ONLY.  WE WILL SOON HAVE A NEW SCHEDULE SINCE WE HAVE BEEN ASKED TO STOP ALL OUTSIDE TOURS. Please review the available slots ON SUNDAY ONLY and click on the button to sign up. Use the "quantity" field to let us know how many people will be in your group. Thank you!
-        </p>
-        <p><strong>General Tour Instructions:</strong></p>
-        <ul class="list-group">
-            <li class="list">Masks are required.</li>
-            <li class="list">Park on Rosewood (west side of the temple)&nbsp;and meet at the Visitors Center trailer.</li>
-            <li class="list">Dress casual, except on Sunday</li>
-        </ul>
-    </div>
-    <a class="btn" asp-action="AddAppointment">Sign Up</a>
 </div>
