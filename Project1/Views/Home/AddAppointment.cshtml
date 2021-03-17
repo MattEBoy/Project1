@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!--APPOINTMENT TIME SELECTED BEFORE COMING TO THIS PAGE-->
+
+<h1>Add an Appointment at ***DATE AND TIME OF APPOINTMENT*** </h1>
+
+<form>
+    <div>
+        <label>Group Name:</label>
+        <input required />
+    </div>
+
+    <div>
+        <label>Group Size:</label>
+        <input type="number" required />
+    </div>
+
+    <div>
+        <label>Group Email:</label>
+        <input required />
+    </div>
+
+    <div>
+        <label>Phone Number:</label>
+        <input placeholder="###-###-####"pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+    </div>
+
+    <button type="submit">Add Appointment</button>
+</form>
