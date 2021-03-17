@@ -49,6 +49,7 @@ namespace Project1.Controllers
             return View();
         }
 
+
         public IActionResult ViewAppointments()
         {
             //TODO: Ben make sure the view appointments is named "ViewAppointments.cshtml"

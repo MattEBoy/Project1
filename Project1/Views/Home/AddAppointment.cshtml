@@ -4,32 +4,37 @@
 @{
 }
 
+@model Project1.Models.Appointment
+
 <!--APPOINTMENT TIME SELECTED BEFORE COMING TO THIS PAGE-->
 
 <h1>Add an Appointment at ***DATE AND TIME OF APPOINTMENT*** </h1>
 
-<form>
+<form asp-action="AddAppointment" method="post">
     <div>
-        <label>Group Name:</label>
-        <input required />
+        <label asp-for="GroupName">Group Name:</label>
+        <input asp-for="GroupName" required />
     </div>
 
     <div>
-        <label>Group Size:</label>
-        <input type="number" required />
+        <label asp-for="GroupSize">Group Size:</label>
+        <input asp-for="GroupSize" type="number" required />
     </div>
 
     <div>
-        <label>Group Email:</label>
-        <input required />
+        <label asp-for="GroupEmail">Group Email:</label>
+        <input asp-for="GroupEmail" required />
     </div>
 
     <div>
-        <label>Phone Number:</label>
-        <input placeholder="###-###-####"pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+        <label asp-for="PhoneNum">Phone Number:</label>
+        <input asp-for="PhoneNum" placeholder="###-###-####"pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
     </div>
 
     <button type="submit">Add Appointment</button>
 </form>
 
-<!--This is a test-->
+<br />
+
+<div asp-validation-summary="All"></div>
+
