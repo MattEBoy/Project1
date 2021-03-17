@@ -15,7 +15,6 @@ namespace Project1.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private AppointmentsContext _context;
-
         public HomeController(ILogger<HomeController> logger, AppointmentsContext context)
         {
             _logger = logger;
@@ -25,7 +24,6 @@ namespace Project1.Controllers
         {
             return View();
         }
-
         //this method posts the appointment, if the appointment is valid it takes the user back to the home page
         [HttpPost]
         public IActionResult AddAppointment(Appointment newApt)
@@ -42,23 +40,28 @@ namespace Project1.Controllers
             }
 
         }
-        //TODO: Ben edit the exisitng AddAppointments.cshtml to be a form with the appointment information
+
+        [HttpGet]
+        public IActionResult ViewTimes()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult ViewTimes(Appointment newApt)
+        {
+            return RedirectToAction("AddAppointment",newApt);
+        }
+
         [HttpGet]
         public IActionResult AddAppointment()
         {
             return View();
         }
-
-
-        public IActionResult ViewAppointments()
+        public IActionResult ViewAppointments(Appointment apt)
         {
-            //TODO: Ben make sure the view appointments is named "ViewAppointments.cshtml"
-            
-
             //return View();
             return View(_context.Appointments);
         }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
