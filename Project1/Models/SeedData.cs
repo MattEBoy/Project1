@@ -50,7 +50,7 @@ namespace Project1.Models
 
                     new Appointment
                     {
-                        GroupName = "Larrry Group",
+                        GroupName = "Larry Group",
                         GroupSize = 3,
                         GroupEmail = "larry@email.com",
                         ApptTime = new DateTime(2021, 05, 04),

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Project1.Models;
 using System;
@@ -12,13 +14,12 @@ namespace Project1.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        //TODO: Sarah add iApplicationRepository to models
-        //private iApplicationRepository _repository
-        public HomeController(ILogger<HomeController> logger) //iApplicationRepository repository
+        private AppointmentsContext _context;
+
+        public HomeController(ILogger<HomeController> logger, AppointmentsContext context)
         {
             _logger = logger;
-            //TODO: Sarah add iApplicationRepository to models
-            //_repository = repository;
+            _context = context;
         }
         public IActionResult Index()
         {
@@ -31,8 +32,8 @@ namespace Project1.Controllers
         {
             if (ModelState.IsValid)
             {
-                //this doesn't work until the repo is created 
-                //_repository.Appointments.Add(newApt);
+                _context.Appointments.Add(newApt);
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
             else
@@ -53,9 +54,8 @@ namespace Project1.Controllers
             //TODO: Ben make sure the view appointments is named "ViewAppointments.cshtml"
             
 
-            return View();
-            //TODO: Sarah add iApplicationRepository to models
-            //return View(_repository.Appointments);
+            //return View();
+            return View(_context.Appointments);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
