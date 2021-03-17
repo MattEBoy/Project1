@@ -12,9 +12,13 @@ namespace Project1.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        public HomeController(ILogger<HomeController> logger)
+        //TODO: Sarah add iApplicationRepository to models
+        //private iApplicationRepository _repository
+        public HomeController(ILogger<HomeController> logger) //iApplicationRepository repository
         {
             _logger = logger;
+            //TODO: Sarah add iApplicationRepository to models
+            //_repository = repository;
         }
         public IActionResult Index()
         {
@@ -28,7 +32,7 @@ namespace Project1.Controllers
             if (ModelState.IsValid)
             {
                 //this doesn't work until the repo is created 
-                //_context.Appointments.Add(newApt);
+                //_repository.Appointments.Add(newApt);
                 return RedirectToAction("Index");
             }
             else
@@ -37,6 +41,7 @@ namespace Project1.Controllers
             }
 
         }
+        //TODO: Ben edit the exisitng AddAppointments.cshtml to be a form with the appointment information
         [HttpGet]
         public IActionResult AddAppointment()
         {
@@ -45,8 +50,12 @@ namespace Project1.Controllers
 
         public IActionResult ViewAppointments()
         {
-            //name the view appointments view "ViewAppointments.cshtml"
+            //TODO: Ben make sure the view appointments is named "ViewAppointments.cshtml"
+            
+
             return View();
+            //TODO: Sarah add iApplicationRepository to models
+            //return View(_repository.Appointments);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
