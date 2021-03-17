@@ -47,15 +47,15 @@ namespace Project1.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult ViewTimes(Appointment newApt)
+        public IActionResult ViewTimes(DateTime newAptDate)
         {
-            return RedirectToAction("AddAppointment",newApt);
+            return RedirectToAction("AddAppointment", newAptDate);
         }
 
         [HttpGet]
-        public IActionResult AddAppointment()
+        public IActionResult AddAppointment(DateTime newAptDate)
         {
-            return View();
+            return View(newAptDate);
         }
         public IActionResult ViewAppointments(Appointment apt)
         {
