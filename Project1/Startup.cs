@@ -59,6 +59,9 @@ namespace Project1
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //added this
+            SeedData.EnsurePopulated(app);
         }
     }
 }
