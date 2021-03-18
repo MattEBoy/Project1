@@ -2,110 +2,57 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    //Made a string list of all the time slots, 8am-8pm for 7 days
+    string[] TimeSlots = {
+    "01/01/2021 08:00 AM", "01/01/2021 09:00 AM", "01/01/2021 10:00 AM","01/01/2021 11:00 AM", "01/01/2021 12:00 PM", "01/01/2021 01:00 PM", "01/01/2021 02:00 PM", "01/01/2021 03:00 PM", "01/01/2021 04:00 PM", "01/01/2021 05:00 PM", "01/01/2021 06:00 PM", "01/01/2021 07:00 AM", "01/01/2021 08:00 PM"
+    ,"01/02/2021 08:00 AM", "01/02/2021 09:00 AM", "01/02/2021 10:00 AM","01/02/2021 11:00 AM", "01/02/2021 12:00 PM", "01/02/2021 01:00 PM", "01/02/2021 02:00 PM", "01/02/2021 03:00 PM", "01/02/2021 04:00 PM", "01/02/2021 05:00 PM", "01/02/2021 06:00 PM", "01/02/2021 07:00 AM", "01/02/2021 08:00 PM"
+    ,"01/03/2021 08:00 AM", "01/03/2021 09:00 AM", "01/03/2021 10:00 AM","01/03/2021 11:00 AM", "01/03/2021 12:00 PM", "01/03/2021 01:00 PM", "01/03/2021 02:00 PM", "01/03/2021 03:00 PM", "01/03/2021 04:00 PM", "01/03/2021 05:00 PM", "01/03/2021 06:00 PM", "01/03/2021 07:00 AM", "01/03/2021 08:00 PM"
+    ,"01/04/2021 08:00 AM", "01/04/2021 09:00 AM", "01/04/2021 10:00 AM","01/04/2021 11:00 AM", "01/04/2021 12:00 PM", "01/04/2021 01:00 PM", "01/04/2021 02:00 PM", "01/04/2021 03:00 PM", "01/04/2021 04:00 PM", "01/04/2021 05:00 PM", "01/04/2021 06:00 PM", "01/04/2021 07:00 AM", "01/04/2021 08:00 PM"
+    ,"01/05/2021 08:00 AM", "01/05/2021 09:00 AM", "01/05/2021 10:00 AM","01/05/2021 11:00 AM", "01/05/2021 12:00 PM", "01/05/2021 01:00 PM", "01/05/2021 02:00 PM", "01/05/2021 03:00 PM", "01/05/2021 04:00 PM", "01/05/2021 05:00 PM", "01/05/2021 06:00 PM", "01/05/2021 07:00 AM", "01/05/2021 08:00 PM"
+    ,"01/06/2021 08:00 AM", "01/06/2021 09:00 AM", "01/06/2021 10:00 AM","01/06/2021 11:00 AM", "01/06/2021 12:00 PM", "01/06/2021 01:00 PM", "01/06/2021 02:00 PM", "01/06/2021 03:00 PM", "01/06/2021 04:00 PM", "01/06/2021 05:00 PM", "01/06/2021 06:00 PM", "01/06/2021 07:00 AM", "01/06/2021 08:00 PM"
+    ,"01/07/2021 08:00 AM", "01/07/2021 09:00 AM", "01/07/2021 10:00 AM","01/07/2021 11:00 AM", "01/07/2021 12:00 PM", "01/07/2021 01:00 PM", "01/07/2021 02:00 PM", "01/07/2021 03:00 PM", "01/07/2021 04:00 PM", "01/07/2021 05:00 PM", "01/07/2021 06:00 PM", "01/07/2021 07:00 AM", "01/07/2021 08:00 PM"};
+
+
+
 }
+
+<!--Inport the newDate model which allows us to pass the date to the next page-->
 @model Project1.Models.NewDate
 
-    <form asp-action="ViewTimes" method="post">
-        <div class="card" style="width: 18rem;">
-            <h5 class="card-title">Week of January 1-7</h5>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/01/2021 08:00 AM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/01/2021 09:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/01/2021 10:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/01/2021 11:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/01/2021 12:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/01/2021 01:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/01/2021 02:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/01/2021 03:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/01/2021 04:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/01/2021 05:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/01/2021 06:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/01/2021 07:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/01/2021 08:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/02/2021 08:00 AM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/02/2021 09:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/02/2021 10:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/02/2021 11:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/02/2021 12:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/02/2021 01:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/02/2021 02:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/02/2021 03:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/02/2021 04:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/02/2021 05:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/02/2021 06:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/02/2021 07:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/02/2021 08:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/03/2021 08:00 AM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/03/2021 09:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/03/2021 10:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/03/2021 11:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/03/2021 12:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/03/2021 01:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/03/2021 02:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/03/2021 03:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/03/2021 04:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/03/2021 05:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/03/2021 06:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/03/2021 07:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/03/2021 08:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/04/2021 08:00 AM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/04/2021 09:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/04/2021 10:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/04/2021 11:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/04/2021 12:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/04/2021 01:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/04/2021 02:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/04/2021 03:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/04/2021 04:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/04/2021 05:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/04/2021 06:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/04/2021 07:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/04/2021 08:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/05/2021 08:00 AM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/05/2021 09:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/05/2021 10:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/05/2021 11:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/05/2021 12:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/05/2021 01:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/05/2021 02:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/05/2021 03:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/05/2021 04:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/05/2021 05:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/05/2021 06:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/05/2021 07:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/05/2021 08:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/06/2021 08:00 AM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/06/2021 09:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/06/2021 10:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/06/2021 11:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/06/2021 12:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/06/2021 01:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/06/2021 02:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/06/2021 03:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/06/2021 04:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/06/2021 05:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/06/2021 06:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/06/2021 07:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/06/2021 08:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/07/2021 08:00 AM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/07/2021 09:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/07/2021 10:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/07/2021 11:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/07/2021 12:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/07/2021 01:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/07/2021 02:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/07/2021 03:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/07/2021 04:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/07/2021 05:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/07/2021 06:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/07/2021 07:00 PM" /><button type="submit">Sign Up</button></li>
-                <li class="list-group-item"><input readonly asp-for="newAptDate" type="text" value="01/07/2021 08:00 PM" /><button type="submit">Sign Up</button></li>
-
-            </ul>
-        </div>
-
-
-    </form>
 
 
 
+<div class="text-center">
+    <h3>Available slots for the week of January 1 - January 7</h3>
+    @foreach (var slot in TimeSlots)
+        //The home controller passes an array into the view.bag that contains the time and dates of the taken times from the database
+        //Each avaibable slot from the TimeSlots list is compared against each item in the database to check if the time is taken
+        //if not found. The time and button is dsplayed on this view.
+    {
+        var found = "";
+
+        @foreach (var takenSlot in ViewBag.TakenSlots)
+        {
+            if (slot == takenSlot)
+            {
+                found = "FOUND";
+            }
+            else
+            {
+                found = "NOT FOUND";
+            }
+        }
+        if (found == "NOT FOUND")
+        {
+            <form asp-action="ViewTimes" method="post">
+                <input readonly asp-for="newAptDate" type="text" value="@slot" /><button class="btn-outline-primary" type="submit">Sign Up</button>
+            </form>
+        }
+    }
+</div>
+
+
+<!--
+
+
+                   -->
