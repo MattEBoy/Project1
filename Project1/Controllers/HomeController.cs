@@ -6,6 +6,7 @@ using Project1.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -47,15 +48,20 @@ namespace Project1.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult ViewTimes(DateTime newAptDate)
+        public IActionResult ViewTimes(NewDate aptDate)
         {
-            return RedirectToAction("AddAppointment", newAptDate);
+            
+            return RedirectToAction("AddAppointment", aptDate);
         }
 
         [HttpGet]
-        public IActionResult AddAppointment(DateTime newAptDate)
+        public IActionResult AddAppointment(NewDate aptDate)
         {
-            return View(newAptDate);
+            ViewBag.StringDate = aptDate.newAptDate;
+            DateTime myDate = DateTime.ParseExact(ViewBag.StringDate, "MM/dd/yyyy hh:mm tt", null);
+            ViewBag.GetFormatDate = myDate;
+            //ViewData["GetNewDate"] = myDate;
+            return View();
         }
         public IActionResult ViewAppointments(Appointment apt)
         {

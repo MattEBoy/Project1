@@ -8,9 +8,13 @@
 
 <!--APPOINTMENT TIME SELECTED BEFORE COMING TO THIS PAGE-->
 
-<h1>Add an Appointment at ***DATE AND TIME OF APPOINTMENT*** </h1>
+<h1>Add an Appointment at @ViewBag.StringDate </h1>
 
 <form asp-action="AddAppointment" method="post">
+    <div>
+        <label asp-for="ApptTime">Date and Time</label>
+        <input type="text" asp-for="ApptTime" readonly value="@ViewBag.GetFormatDate" />
+    </div>
     <div>
         <label asp-for="GroupName">Group Name:</label>
         <input asp-for="GroupName" required />
@@ -28,7 +32,7 @@
 
     <div>
         <label asp-for="PhoneNum">Phone Number:</label>
-        <input asp-for="PhoneNum" placeholder="###-###-####"pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+        <input asp-for="PhoneNum" placeholder="###-###-####" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
     </div>
 
     <button type="submit">Add Appointment</button>
