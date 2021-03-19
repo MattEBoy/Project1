@@ -16,10 +16,12 @@ namespace Project1.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private AppointmentsContext _context;
+        
         public HomeController(ILogger<HomeController> logger, AppointmentsContext context)
         {
             _logger = logger;
             _context = context;
+            
         }
         public IActionResult Index()
         {
@@ -33,7 +35,7 @@ namespace Project1.Controllers
             {
                 _context.Appointments.Add(newApt);
                 _context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ViewAppointments");
             }
             else
             {
@@ -45,6 +47,19 @@ namespace Project1.Controllers
         [HttpGet]
         public IActionResult ViewTimes()
         {
+            //Creates a string list of all the times/dates in the database
+            List<string> takenSlots = new List<string>();
+            {
+                foreach (var appointment in _context.Appointments)
+                {
+                    //date time object is converted to a string with formatting to match the view formatting
+                    takenSlots.Add(appointment.ApptTime.ToString("MM/dd/yyyy hh:mm tt"));
+                }
+            }
+
+            //passes that list into the viewbag to be accessed in the view.
+            ViewBag.TakenSlots = takenSlots;
+
             return View();
         }
         [HttpPost]
@@ -57,10 +72,12 @@ namespace Project1.Controllers
         [HttpGet]
         public IActionResult AddAppointment(NewDate aptDate)
         {
+            //the date from the ViewTimes view is passed through from the paramter into the viewbag to this view.
             ViewBag.StringDate = aptDate.newAptDate;
+            //String is parsed into a datetime class and sent to the view
             DateTime myDate = DateTime.ParseExact(ViewBag.StringDate, "MM/dd/yyyy hh:mm tt", null);
             ViewBag.GetFormatDate = myDate;
-            //ViewData["GetNewDate"] = myDate;
+            
             return View();
         }
         public IActionResult ViewAppointments(Appointment apt)

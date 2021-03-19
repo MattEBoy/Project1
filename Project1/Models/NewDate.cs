@@ -8,5 +8,7 @@ namespace Project1.Models
     public class NewDate
     {
         public string newAptDate { get; set; }
+
+
     }
 }
